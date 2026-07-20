@@ -1,0 +1,17 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "Kalkulator Rowków",
+  "outputfilename": "KalkulatorRowkow",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "info": {
+    "productName": "Kalkulator rowków",
+    "productVersion": "1.0.3.0",
+    "fileVersion": "1.0.3.0",
+    "copyright": "Copyright © 2026",
+    "infoProductVersion": "1.0.3.0",
+    "infoFileVersion": "1.0.3.0"
+  }
+}

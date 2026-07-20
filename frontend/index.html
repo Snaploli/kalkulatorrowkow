@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kalkulator Rowków</title>
+    <link rel="icon" type="image/png" href="./src/assets/images/logo-universal.png" />
+    <!-- Import clean Inter and JetBrains Mono fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" class="app-container">
+        <div class="calculator-grid">
+            <!-- Inputs Column -->
+            <div class="inputs-section">
+                <div class="field-group">
+                    <label for="external">Wymiar zewnętrzny (A)</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="external" placeholder="0.00" step="0.01" autocomplete="off" />
+                        <span class="unit">mm</span>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="internal">Wymiar wewnętrzny (B)</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="internal" placeholder="0.00" step="0.01" autocomplete="off" />
+                        <span class="unit">mm</span>
+                    </div>
+                </div>
+
+                <button id="calculate" class="calc-btn">Oblicz</button>
+            </div>
+
+            <!-- Outputs Column -->
+            <div class="outputs-section">
+                <div id="result" class="result-display">
+                    <div class="result-idle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./src/main.js" type="module"></script>
+</body>
+
+</html>

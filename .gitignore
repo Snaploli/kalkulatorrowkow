@@ -1,0 +1,25 @@
+# Wails and build output
+build/bin
+build/obj
+KalkulatorRowkow.app/
+KalkulatorRowkow.exe
+KalkulatorRowkow
+novamonitor
+
+# Node.js
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Vite build output
+frontend/dist
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
