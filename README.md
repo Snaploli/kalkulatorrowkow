@@ -1,4 +1,4 @@
-# Kalkulator Rowków (Groove Calculator)
+# Kalkulator Rowków
 
 [![Wails Version](https://img.shields.io/badge/Wails-v2-blue.svg)](https://wails.io/)
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8.svg)](https://golang.org/)
@@ -7,10 +7,6 @@
 **Kalkulator Rowków** to narzędzie desktopowe ułatwiające inżynierom i mechanikom szybkie wyliczanie wymiarów rowków pod uszczelki, bazując na podanych wymiarach wewnętrznych i zewnętrznych. Aplikacja automatycznie sugeruje odpowiednie uszczelki standardu R oraz BX z wbudowanej bazy danych.
 
 ---
-
-## 🎨 Zrzuty ekranu
-
-*(Tutaj możesz dodać zrzuty ekranu aplikacji)*
 
 ## 🚀 Technologie
 
@@ -65,11 +61,6 @@ Jeśli chcesz uruchomić czysty proces kompilacji dla swojego systemu, po prostu
 wails build -clean
 ```
 Gotowy plik wykonywalny (.exe dla Windows, .app dla macOS, lub binarka pod Linuksem) pojawi się w folderze `build/bin/`.
-
-## 🔄 CI/CD (GitHub Actions)
-
-W repozytorium znajduje się skonfigurowany system Continuous Integration: `.github/workflows/release.yml`.
-Przy każdym wypchnięciu (push) kodu na gałąź `main`, GitHub Actions automatycznie zbuduje binarki dla Windowsa i macOS, po czym wystawi je jako **GitHub Release**, aby użytkownicy mogli je wygodnie pobrać.
 
 ## 📄 Licencja
 
