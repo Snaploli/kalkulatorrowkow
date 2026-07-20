@@ -64,4 +64,4 @@ Gotowy plik wykonywalny (.exe dla Windows, .app dla macOS, lub binarka pod Linuk
 
 ## 📄 Licencja
 
-Projekt dystrybuowany na licencji MIT. Zobacz plik `LICENSE` (jeśli dodano) po więcej szczegółów.
+Projekt dystrybuowany na licencji MIT.
