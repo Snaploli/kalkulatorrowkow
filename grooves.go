@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"math"
+	"strings"
+)
 
 type Groove struct {
 	Name        string  `json:"name"`
@@ -120,11 +123,19 @@ var GrooveDatabase = []Groove{
 }
 
 // FindClosestGroove finds the closest matching R or BX groove based on pitch diameter (p) and width (q).
-func FindClosestGroove(p, q float64) Groove {
+// grooveType can be "R", "BX", or "AUTO" (or empty string for all).
+func FindClosestGroove(p, q float64, grooveType string) Groove {
 	var bestMatch Groove
 	minDist := math.MaxFloat64
 
 	for _, g := range GrooveDatabase {
+		if grooveType == "R" && !strings.HasPrefix(g.Name, "R") {
+			continue
+		}
+		if grooveType == "BX" && !strings.HasPrefix(g.Name, "BX") {
+			continue
+		}
+
 		// Compare distance to typical groove width
 		distGroove := math.Pow(p-g.PitchDia, 2) + math.Pow(q-g.GrooveWidth, 2)
 		// Compare distance to typical gasket width

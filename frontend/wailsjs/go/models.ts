@@ -3,6 +3,8 @@ export namespace main {
 	export class CalculationResult {
 	    p: number;
 	    q: number;
+	    external: number;
+	    grooveType: string;
 	    suggestedName: string;
 	    suggestedP: number;
 	    suggestedW: number;
@@ -17,6 +19,8 @@ export namespace main {
 	        if ('string' === typeof source) source = JSON.parse(source);
 	        this.p = source["p"];
 	        this.q = source["q"];
+	        this.external = source["external"];
+	        this.grooveType = source["grooveType"];
 	        this.suggestedName = source["suggestedName"];
 	        this.suggestedP = source["suggestedP"];
 	        this.suggestedW = source["suggestedW"];

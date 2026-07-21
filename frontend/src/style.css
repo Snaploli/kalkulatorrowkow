@@ -31,19 +31,21 @@ input[type=number] {
 
 .app-container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: #151518;
-    padding: 24px;
+    padding: 12px 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
 }
 
 .calculator-grid {
     display: grid;
-    grid-template-columns: 210px 1fr;
-    gap: 24px;
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
     height: 100%;
     align-items: center;
 }
@@ -51,19 +53,58 @@ input[type=number] {
 .inputs-section {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 8px;
+    justify-content: center;
 }
 
 .field-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 3px;
 }
 
 .field-group label {
-    font-size: 11px;
+    font-size: 10px;
     color: #a1a1aa;
     font-weight: 500;
+}
+
+.type-segmented-control {
+    display: flex;
+    background-color: #1e1e22;
+    border: 1px solid #2d2d34;
+    border-radius: 4px;
+    padding: 2px;
+    gap: 2px;
+}
+
+.type-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    color: #a1a1aa;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 0;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.type-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.type-btn.active {
+    background-color: #27272a;
+    color: #f59e0b;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .input-with-unit {
@@ -77,146 +118,189 @@ input[type=number] {
     background-color: #1e1e22;
     border: 1px solid #2d2d34;
     border-radius: 4px;
-    padding: 8px 32px 8px 10px;
+    padding: 5px 26px 5px 8px;
     color: #ffffff;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
+    font-size: 13px;
     outline: none;
-    transition: border-color 0.15s ease;
+    transition: all 0.15s ease;
 }
 
 .input-with-unit input:focus {
     border-color: #f59e0b;
-    /* Solid Flat Amber */
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.15);
 }
 
 .input-with-unit .unit {
     position: absolute;
-    right: 10px;
-    font-size: 11px;
+    right: 8px;
+    font-size: 10px;
     color: #52525b;
     font-family: 'JetBrains Mono', monospace;
-}
-
-.calc-btn {
-    background-color: #27272a;
-    border: 1px solid #3f3f46;
-    border-radius: 4px;
-    color: #e4e4e7;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-}
-
-.calc-btn:hover {
-    background-color: #f59e0b;
-    border-color: #f59e0b;
-    color: #0e0e10;
-}
-
-.calc-btn:active {
-    opacity: 0.9;
 }
 
 /* Output Display Column */
 .outputs-section {
     border-left: 1px solid #27272a;
-    padding-left: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.result-display {
+    padding-left: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
 }
 
+.result-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .result-idle {
     font-size: 11px;
-    color: #52525b;
+    color: #71717a;
+    line-height: 1.4;
 }
 
 .readout-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 6px;
 }
 
 .readout-item {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 1px;
+    padding: 3px 5px;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+}
+
+.readout-item.clickable {
+    cursor: pointer;
+}
+
+.readout-item.clickable:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.readout-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .readout-item label {
-    font-size: 10px;
+    font-size: 9px;
     color: #71717a;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    cursor: inherit;
+}
+
+.copy-badge {
+    font-size: 8px;
+    color: #52525b;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    opacity: 0;
+    transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.readout-item.clickable:hover .copy-badge {
+    opacity: 1;
+    color: #f59e0b;
 }
 
 .readout-value {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: #f59e0b;
 }
 
 .readout-value .unit-small {
-    font-size: 12px;
+    font-size: 10.5px;
     font-weight: 400;
     color: #71717a;
-    margin-left: 4px;
+    margin-left: 3px;
 }
 
 .result-error {
     color: #ef4444;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 1.3;
 }
 
-/* Suggested Groove Section */
-.suggested-row {
-    margin-top: 14px;
-    padding: 8px 10px;
-    background: rgba(245, 158, 11, 0.03);
-    border: 1px dashed rgba(245, 158, 11, 0.15);
+/* Suggested Groove Compact Pill */
+.suggested-pill {
+    margin-top: 6px;
+    padding: 4px 8px;
+    background: rgba(245, 158, 11, 0.05);
+    border: 1px dashed rgba(245, 158, 11, 0.25);
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    animation: fadeIn 0.25s ease-out;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    animation: fadeIn 0.2s ease-out;
 }
 
-.suggested-label {
-    font-size: 10px;
+.suggested-pill:hover {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: #f59e0b;
+}
+
+.suggested-pill-label {
+    font-size: 9px;
     color: #71717a;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 500;
 }
 
-.suggested-value-badge {
+.suggested-pill-badge {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     color: #f59e0b;
-    background: rgba(245, 158, 11, 0.08);
-    padding: 2px 8px;
+    background: rgba(245, 158, 11, 0.12);
+    padding: 1px 6px;
     border-radius: 3px;
+}
+
+/* Toast notification */
+.toast {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    background-color: #27272a;
+    border: 1px solid #3f3f46;
+    color: #f59e0b;
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(4px);
+        transform: translateY(2px);
     }
     to {
         opacity: 1;

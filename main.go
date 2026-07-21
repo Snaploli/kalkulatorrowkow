@@ -17,9 +17,11 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "Kalkulator rowków v1.0.3",
-		Width:  512,
-		Height: 256,
+		Title:     "Kalkulator Rowków v1.1",
+		Width:     470,
+		Height:    215,
+		MinWidth:  440,
+		MinHeight: 190,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},

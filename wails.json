@@ -8,10 +8,10 @@
   "frontend:dev:serverUrl": "auto",
   "info": {
     "productName": "Kalkulator rowków",
-    "productVersion": "1.0.3.0",
-    "fileVersion": "1.0.3.0",
+    "productVersion": "1.1.0.0",
+    "fileVersion": "1.1.0.0",
     "copyright": "Copyright © 2026",
-    "infoProductVersion": "1.0.3.0",
-    "infoFileVersion": "1.0.3.0"
+    "infoProductVersion": "1.1.0.0",
+    "infoFileVersion": "1.1.0.0"
   }
 }
